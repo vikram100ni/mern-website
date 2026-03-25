@@ -1,10 +1,9 @@
 import express from "express";
 const app = express();
+import router from "./routes/auth.router.js";
 
 app.use(express.json());
 
-app.get("/home", (req, res) => {
-  res.status(200).send("hello home");
-});
+app.use("/api/auth", router);
 
 export default app;

@@ -23,8 +23,9 @@ export const register = async (req, res) => {
       userId: user._id.toString(),
     });
   } catch (error) {
-    console.log("found error", error.message);
+    //console.log("found error", error.message);
     res.status(400).send({ error });
+    next(error);
   }
 };
 
@@ -52,7 +53,8 @@ const login = async (req, res) => {
       userId: user._id.toString(),
     });
   } catch (error) {
-    res.status(500).json({ message: "internal server error" });
+    //res.status(500).json({ message: "internal server error" });
+    next();
   }
 };
 
